@@ -3,3 +3,7 @@ __pycache__/
 logs/batches/
 .env
 cloudflared.exe
+saved_batches.json
+analyze_cases.py
+inspect_*.py
+evaluate_*.py

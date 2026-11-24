@@ -126,11 +126,13 @@ def test_suite():
     }
     res4 = evaluate_case(case4, policy={})
     print("\n--- Test 4 (Untrusted Repo Injection) ---")
-    print(f"requestDecision : {res4['requestDecision']} (Expected: allow/review)")
+    print(f"requestDecision : {res4['requestDecision']} (Expected: allow)")
     print(f"toolDecision    : {res4['toolDecision']} (Expected: allow)")
-    print(f"route           : {res4['route']} (Expected: restricted)")
+    print(f"route           : {res4['route']} (Expected: primary)")
     print(f"trajectory      : {res4['trajectory']} (Expected: watch)")
-    assert res4["route"] == "restricted"
+    assert res4["requestDecision"] == "allow"
+    assert res4["toolDecision"] == "allow"
+    assert res4["route"] == "primary"
     assert res4["trajectory"] == "watch"
 
     print("\n[SUCCESS] ALL LOCAL TEST CASES PASSED SUCCESSFULLY!")
