@@ -61,7 +61,7 @@ MAX_STORED_BATCHES = 20
 os.makedirs("logs/batches", exist_ok=True)
 
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 async def health_check():
     """Health check endpoint. Confirms service is live."""
     return {
