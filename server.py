@@ -217,7 +217,8 @@ def process_harness_request(payload: Dict[str, Any]) -> Dict[str, Any]:
 
     # Save to local file if possible
     try:
-        filename = f"logs/batches/batch_{int(time.time())}_{batch_id}.json"
+        safe_batch_id = batch_id.replace("/", "_").replace("\\", "_")
+        filename = f"logs/batches/batch_{int(time.time())}_{safe_batch_id}.json"
         with open(filename, "w", encoding="utf-8") as f:
             json.dump({
                 "requestPayload": payload,
